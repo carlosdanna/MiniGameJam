@@ -37,8 +37,8 @@ public class Shark_SpawnMaster : MonoBehaviour
     {
         float offsetX, offsetY;
 
-        offsetX = theRock.GetComponent<CircleCollider2D>().radius + 2;
-        offsetY = theRock.GetComponent<CircleCollider2D>().radius + 2;
+        offsetX = theRock.GetComponent<CircleCollider2D>().radius;
+        offsetY = theRock.GetComponent<CircleCollider2D>().radius;
 
         float spawnY, spawnX;       // place to spawn
 
