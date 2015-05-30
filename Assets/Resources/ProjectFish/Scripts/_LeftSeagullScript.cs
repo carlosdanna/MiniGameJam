@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class _LeftSeagullScript : MonoBehaviour {
 
-	public float magnitude = 5.0f;
-	public float hSpeed = 0.1f;
+	public float magnitude = -5.0f;
+	public float hSpeed = -0.1f;
 	float initialHeight = 0.0f;
 	// Use this for initialization
 	void Start () {
