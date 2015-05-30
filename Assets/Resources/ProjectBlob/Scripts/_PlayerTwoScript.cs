@@ -7,7 +7,7 @@ public class _PlayerTwoScript : MonoBehaviour {
     KeyCode UP = KeyCode.UpArrow;
     KeyCode RIGHT = KeyCode.RightArrow;
     KeyCode DOWN = KeyCode.DownArrow;
-    KeyCode SHOOT = KeyCode.RightShift;
+    KeyCode SHOOT = KeyCode.KeypadEnter;
 
     // === Variables
     public GameObject blobPrefab;
@@ -57,7 +57,7 @@ public class _PlayerTwoScript : MonoBehaviour {
             // Creating the Blob
             GameObject blob = Instantiate<GameObject>(blobPrefab) as GameObject;
             // Setting it's color
-            blob.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
+            blob.GetComponent<SpriteRenderer>().color = Color.blue;
             // Setting it's initial position
             Rect rect = blob.GetComponent<SpriteRenderer>().sprite.rect;
             position.x -= rect.width / 200; position.y += rect.height / 200;

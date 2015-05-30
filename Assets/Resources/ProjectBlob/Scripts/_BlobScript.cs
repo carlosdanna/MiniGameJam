@@ -33,7 +33,7 @@ public class _BlobScript : MonoBehaviour {
         }
         else
         {
-            position.y -= 3f * Time.deltaTime;
+            position.y -= 2f * Time.deltaTime;
             m_bFalling = true;
         }
         // == Keeping it centered

@@ -55,7 +55,7 @@ public class _PlayerOneScript : MonoBehaviour {
             // Creating the Blob
             GameObject blob = Instantiate<GameObject>(blobPrefab) as GameObject;
             // Setting it's color
-            blob.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
+            blob.GetComponent<SpriteRenderer>().color = Color.red;
             // Setting it's initial position
             Rect rect = blob.GetComponent<SpriteRenderer>().sprite.rect;
             position.x -= rect.width / 200; position.y += rect.height / 200;
