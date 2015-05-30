@@ -9,6 +9,8 @@ public class Shark_CameraScript : MonoBehaviour {
     private int m_nState;
     public GameObject player = null;
     private Vector3 m_v3ZoomOrigin;
+    private Vector3 playerStartVolcano;
+    private Vector3 playerStartDescent;
 
     public float m_fZoomTimeLength = 2.0f;
     public float m_fZoomOutSize = 5.0f;
@@ -24,6 +26,8 @@ public class Shark_CameraScript : MonoBehaviour {
     {
         m_nState = 1;
         m_fZoomTimer = 0.0f;
+        playerStartVolcano = player.transform.position;
+        playerStartDescent = new Vector3(playerStartVolcano.x, playerStartVolcano.y + 3.5f, playerStartVolcano.z);
 	}
 	
 	// Update is called once per frame
@@ -33,21 +37,43 @@ public class Shark_CameraScript : MonoBehaviour {
         switch ( m_nState )
         {
             case 0: // Player locked
-                transform.position = new Vector3(player.transform.position.x, player.transform.position.y , -10.0f);
+                transform.position = new Vector3(player.transform.position.x, player.transform.position.y -3.25f , -10.0f);
+
+                if (Input.GetKeyDown(KeyCode.O))
+                {
+                    player.GetComponent<Animator>().SetInteger("m_nAnimatorState", 2);
+                    player.GetComponent<Animator>().StopPlayback();
+                    player.GetComponent<Animator>().Play("HurtBoulderState");
+                }
+
+                if (Input.GetKeyDown(KeyCode.P))
+                {
+                    player.GetComponent<Animator>().SetInteger("m_nAnimatorState", 3);
+                    player.GetComponent<Animator>().StopPlayback();
+                    player.GetComponent<Animator>().Play("HurtHoleState");
+                }
+
                 break;
             case 1: // Player unlocked
                 if (Input.GetKeyDown(KeyCode.T))
                     ZoomToPlayer();
                 break;
             case 2: // Zoom to player
-                transform.position = Lerp(m_v3ZoomOrigin, new Vector3(player.transform.position.x, player.transform.position.y, -10.0f), (m_fZoomTimeLength - m_fZoomTimer) / m_fZoomTimeLength);
-                GetComponent<Camera>().orthographicSize = Lerp(m_fZoomOutSize, m_fZoomInSize, (m_fZoomTimeLength - m_fZoomTimer) / m_fZoomTimeLength);
+                float ratio = (m_fZoomTimeLength - m_fZoomTimer) / m_fZoomTimeLength;
+                transform.position = Lerp(m_v3ZoomOrigin, new Vector3(player.transform.position.x, player.transform.position.y - 3.25f, -10.0f), ratio);
+                GetComponent<Camera>().orthographicSize = Lerp(m_fZoomOutSize, m_fZoomInSize, ratio);
+                player.transform.position = Lerp(playerStartVolcano, playerStartDescent, ratio);
                 m_fZoomTimer -= Time.deltaTime;
                 if (m_fZoomTimer <= 0.0f)
                 {
                     m_nState = 0;
-                    transform.position = player.transform.position;
+                    transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 3.25f, -10.0f);
                     GetComponent<Camera>().orthographicSize = m_fZoomInSize;
+                    player.GetComponent<Animator>().SetInteger("m_nAnimatorState", 1);
+                    player.GetComponent<Animator>().StopPlayback();
+                    player.GetComponent<Animator>().Play("MoveState");
+                    player.GetComponent<BlavaMovement>().GoTime(true);
+                    player.GetComponent<SpriteRenderer>().sortingOrder = 3;
                 }
                 break;
         }
