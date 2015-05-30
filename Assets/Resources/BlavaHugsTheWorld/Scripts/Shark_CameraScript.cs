@@ -11,6 +11,7 @@ public class Shark_CameraScript : MonoBehaviour {
     private Vector3 m_v3ZoomOrigin;
     private Vector3 playerStartVolcano;
     private Vector3 playerStartDescent;
+    private Shark_Blava_SoundCycle soundSystem;
 
     public float m_fZoomTimeLength = 2.0f;
     public float m_fZoomOutSize = 5.0f;
@@ -28,6 +29,7 @@ public class Shark_CameraScript : MonoBehaviour {
         m_fZoomTimer = 0.0f;
         playerStartVolcano = player.transform.position;
         playerStartDescent = new Vector3(playerStartVolcano.x, playerStartVolcano.y + 3.5f, playerStartVolcano.z);
+        soundSystem = GetComponent<Shark_Blava_SoundCycle>();
 	}
 	
 	// Update is called once per frame
@@ -74,6 +76,7 @@ public class Shark_CameraScript : MonoBehaviour {
                     player.GetComponent<Animator>().Play("MoveState");
                     player.GetComponent<BlavaMovement>().GoTime(true);
                     player.GetComponent<SpriteRenderer>().sortingOrder = 3;
+                    soundSystem.Play();
                 }
                 break;
         }
