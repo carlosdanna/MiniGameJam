@@ -23,9 +23,9 @@ public class BlavaMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.LeftArrow))
+		if (Input.GetAxis("Horizontal") < 0)
 			Direction = -1;
-		else if (Input.GetKey (KeyCode.RightArrow))
+		else if (Input.GetAxis("Horizontal") > 0)
 			Direction = 1;
 		else
 			Direction = 0;
