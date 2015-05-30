@@ -14,8 +14,10 @@ public class BlavaMovement : MonoBehaviour {
 	public float Acceleration = 0f;
 	private float Direction=0f;
 	private float lastDirection =0f;
-	private Vector2 Velocity;
+    //private Vector2 Velocity;
 	public Rigidbody2D body;
+
+    private bool m_bGoTime = false;
 	
 	void Start () {
 		body =  GetComponent<Rigidbody2D> ();
@@ -23,6 +25,9 @@ public class BlavaMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (!m_bGoTime)
+            return;
+
 		if (Input.GetAxis("Horizontal") < 0)
 			Direction = -1;
 		else if (Input.GetAxis("Horizontal") > 0)
@@ -51,4 +56,9 @@ public class BlavaMovement : MonoBehaviour {
 		
 		//	body.velocity = new Vector2 (Direction * Speed, fallSpeed);
 	}
+
+    public void GoTime(bool isGoTime)
+    {
+        m_bGoTime = isGoTime;
+    }
 }
