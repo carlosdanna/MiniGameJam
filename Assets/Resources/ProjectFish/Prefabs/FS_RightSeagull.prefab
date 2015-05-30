@@ -10,9 +10,10 @@ GameObject:
   - 4: {fileID: 479178}
   - 212: {fileID: 21255300}
   - 114: {fileID: 11428502}
+  - 61: {fileID: 6105396}
   m_Layer: 0
   m_Name: FS_RightSeagull
-  m_TagString: Untagged
+  m_TagString: Seagull
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,6 +30,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6105396
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147996}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: .425000012, y: -.425000012}
+  serializedVersion: 2
+  m_Size: {x: .850000024, y: .850000024}
 --- !u!114 &11428502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42,6 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magnitude: 3.5
   hSpeed: .100000001
+  spawner: {fileID: 0}
 --- !u!212 &21255300
 SpriteRenderer:
   m_ObjectHideFlags: 1

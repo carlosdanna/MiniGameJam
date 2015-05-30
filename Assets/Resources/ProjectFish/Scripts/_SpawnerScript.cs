@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class _SpawnerScript : MonoBehaviour {
 
 	public List<GameObject> rightSpawnPoints;
 	public List<GameObject> leftSpawnPoints;
-	GameObject currentSeagull = null;
-	bool seagullInFlight = false;
-	float betweenTimer = 0.0f;
+	public GameObject currentSeagull = null;
+	public bool seagullInFlight = false;
+	public float betweenTimer = 0.0f;
+	public Text score;
+	public int scoreNum = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -54,10 +57,13 @@ public class _SpawnerScript : MonoBehaviour {
 		bool isRight = (right == 1) ? true : false;
 
 		GameObject gull = null;
-		if(isRight)
-			gull = (GameObject)Instantiate ((GameObject)Resources.Load ("ProjectFish/Prefabs/FS_RightSeagull"), rightSpawnPoints[point].transform.position, Quaternion.identity);
-		else
-			gull = (GameObject)Instantiate ((GameObject)Resources.Load ("ProjectFish/Prefabs/FS_LeftSeagull"), leftSpawnPoints[point].transform.position, Quaternion.identity);
+		if (isRight) {
+			gull = (GameObject)Instantiate ((GameObject)Resources.Load ("ProjectFish/Prefabs/FS_RightSeagull"), rightSpawnPoints [point].transform.position, Quaternion.identity);
+			gull.GetComponent<_RightSeagullScript>().spawner = this;
+		} else {
+			gull = (GameObject)Instantiate ((GameObject)Resources.Load ("ProjectFish/Prefabs/FS_LeftSeagull"), leftSpawnPoints [point].transform.position, Quaternion.identity);
+			gull.GetComponent<_LeftSeagullScript>().spawner = this;
+		}
 
 		seagullInFlight = true;
 		currentSeagull = gull;
