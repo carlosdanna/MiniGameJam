@@ -86,7 +86,7 @@ public class Shark_CameraScript : MonoBehaviour {
 
     }
 
-    void ZoomToPlayer()
+    public void ZoomToPlayer()
     {
         m_fZoomTimer = m_fZoomTimeLength;
         m_v3ZoomOrigin = transform.position;

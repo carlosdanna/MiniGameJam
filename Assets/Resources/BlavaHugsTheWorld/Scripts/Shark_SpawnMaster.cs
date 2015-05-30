@@ -13,7 +13,7 @@ public class Shark_SpawnMaster : MonoBehaviour
     public float upBound, downBound, leftBound, rightBound;
 
     // Use this for initialization
-    void Start()
+    public void Initialize()
     {
         theCenter = new Vector2(transform.position.x, transform.position.y);
 

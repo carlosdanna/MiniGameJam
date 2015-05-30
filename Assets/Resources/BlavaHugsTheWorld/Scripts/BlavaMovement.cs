@@ -25,6 +25,7 @@ public class BlavaMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         if (!m_bGoTime)
             return;
 
