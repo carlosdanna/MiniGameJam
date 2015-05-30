@@ -10,6 +10,7 @@ public class _PlayerOneScript : MonoBehaviour {
     KeyCode SHOOT = KeyCode.Space;
 
     // === Variables
+    public GameObject blobPrefab;
     float m_fSpeed = 3;
 
 	// Use this for initialization
@@ -51,7 +52,16 @@ public class _PlayerOneScript : MonoBehaviour {
         // === Shooting
         if (Input.GetKeyDown(SHOOT))
         {
-            
+            // Creating the Blob
+            GameObject blob = Instantiate<GameObject>(blobPrefab) as GameObject;
+            // Setting it's color
+            blob.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
+            // Setting it's initial position
+            Rect rect = blob.GetComponent<SpriteRenderer>().sprite.rect;
+            position.x -= rect.width / 200; position.y += rect.height / 200;
+            position.z = 5;
+            blob.transform.position = position;
+            blob.GetComponent<_BlobScript>().CenterPosition = position;
         }
     }
 

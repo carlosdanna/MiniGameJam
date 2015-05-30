@@ -7,9 +7,10 @@ public class _PlayerTwoScript : MonoBehaviour {
     KeyCode UP = KeyCode.UpArrow;
     KeyCode RIGHT = KeyCode.RightArrow;
     KeyCode DOWN = KeyCode.DownArrow;
-    KeyCode SHOOT = KeyCode.Alpha0;
+    KeyCode SHOOT = KeyCode.RightShift;
 
     // === Variables
+    public GameObject blobPrefab;
     float m_fSpeed = 3;
 
     // Use this for initialization
@@ -53,7 +54,16 @@ public class _PlayerTwoScript : MonoBehaviour {
         // === Shooting
         if (Input.GetKeyDown(SHOOT))
         {
-
+            // Creating the Blob
+            GameObject blob = Instantiate<GameObject>(blobPrefab) as GameObject;
+            // Setting it's color
+            blob.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
+            // Setting it's initial position
+            Rect rect = blob.GetComponent<SpriteRenderer>().sprite.rect;
+            position.x -= rect.width / 200; position.y += rect.height / 200;
+            position.z = 5;
+            blob.transform.position = position;
+            blob.GetComponent<_BlobScript>().CenterPosition = position;
         }
     }
 
