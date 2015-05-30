@@ -114,6 +114,7 @@ public class _GameplayScript : MonoBehaviour {
                 HUDText.GetComponent<Text>().text = "Red Wins!";
             else
                 HUDText.GetComponent<Text>().text = "Blue Wins!";
+            Camera.main.GetComponent<_SoundManagerScript>().PlayAudio(_SoundManagerScript.SoundID.bVictory);
             // Set the next State
             m_State = State.FINISH;
             HUDTimer.gameObject.SetActive(true);

@@ -62,6 +62,8 @@ public class _PlayerOneScript : MonoBehaviour {
             position.z = 5;
             blob.transform.position = position;
             blob.GetComponent<_BlobScript>().CenterPosition = position;
+            // Playing the Audio
+            Camera.main.GetComponent<_SoundManagerScript>().PlayAudio(_SoundManagerScript.SoundID.bShoot);
         }
     }
 
