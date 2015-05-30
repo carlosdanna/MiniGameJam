@@ -11,6 +11,7 @@ public class Shark_CameraScript : MonoBehaviour {
     private Vector3 m_v3ZoomOrigin;
     private Vector3 playerStartVolcano;
     private Vector3 playerStartDescent;
+    private Shark_Blava_SoundCycle soundSystem;
 
     public float m_fZoomTimeLength = 2.0f;
     public float m_fZoomOutSize = 5.0f;
@@ -19,6 +20,7 @@ public class Shark_CameraScript : MonoBehaviour {
     // 0 - Player locked
     // 1 - Player unlocked
     // 2 - Zooming to player
+    // 3 - Player win!
 
 
 	// Use this for initialization
@@ -28,6 +30,7 @@ public class Shark_CameraScript : MonoBehaviour {
         m_fZoomTimer = 0.0f;
         playerStartVolcano = player.transform.position;
         playerStartDescent = new Vector3(playerStartVolcano.x, playerStartVolcano.y + 3.5f, playerStartVolcano.z);
+        soundSystem = GetComponent<Shark_Blava_SoundCycle>();
 	}
 	
 	// Update is called once per frame
@@ -55,8 +58,6 @@ public class Shark_CameraScript : MonoBehaviour {
 
                 break;
             case 1: // Player unlocked
-                if (Input.GetKeyDown(KeyCode.T))
-                    ZoomToPlayer();
                 break;
             case 2: // Zoom to player
                 float ratio = (m_fZoomTimeLength - m_fZoomTimer) / m_fZoomTimeLength;
@@ -74,7 +75,18 @@ public class Shark_CameraScript : MonoBehaviour {
                     player.GetComponent<Animator>().Play("MoveState");
                     player.GetComponent<BlavaMovement>().GoTime(true);
                     player.GetComponent<SpriteRenderer>().sortingOrder = 3;
+                    soundSystem.Play();
                 }
+                break;
+            case 3: // Player win!
+                player.GetComponent<BlavaMovement>().GoTime(false);
+                player.GetComponent<BlavaMovement>().Speed = 0.0f;
+                player.GetComponent<BlavaMovement>().KillRigid();
+                player.GetComponent<Animator>().SetInteger("m_nAnimatorState", 4);
+                player.GetComponent<Animator>().StopPlayback();
+                player.GetComponent<Animator>().Play("WinState");
+                m_nState = 1;
+                soundSystem.Win();
                 break;
         }
 	
@@ -101,6 +113,11 @@ public class Shark_CameraScript : MonoBehaviour {
     void UnlockFromPlayer()
     {
         m_nState = 1;
+    }
+
+    public void Victory()
+    {
+        m_nState = 3;
     }
 
     Vector3 Lerp(Vector3 src, Vector3 dest, float ratio)

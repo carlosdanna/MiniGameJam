@@ -29,6 +29,14 @@ public class BlavaMovement : MonoBehaviour {
         if (!m_bGoTime)
             return;
 
+        if ( Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale > 0)
+                GameObject.Find("Canvas").GetComponent<Shark_Menu>().Pause();
+            else
+                GameObject.Find("Canvas").GetComponent<Shark_Menu>().Resume();
+        }
+
 		if (Input.GetAxis("Horizontal") < 0)
 			Direction = -1;
 		else if (Input.GetAxis("Horizontal") > 0)
@@ -66,5 +74,10 @@ public class BlavaMovement : MonoBehaviour {
     public void Die()
     {
         Application.LoadLevel(Application.loadedLevel);
+    }
+
+    public void KillRigid()
+    {
+        Destroy(body);
     }
 }
