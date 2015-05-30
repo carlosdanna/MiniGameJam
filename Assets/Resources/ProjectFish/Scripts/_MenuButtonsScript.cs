@@ -15,9 +15,11 @@ public class _MenuButtonsScript : MonoBehaviour {
     }
 
     // === Select Gamemode Button
-    public void OnSelectBtnClick()
+    public void OnSelectBtnClick(int i)
     {
+        PlayerPrefs.SetInt("ScreenToLoad", i);
         Application.LoadLevel("MainScene");
+        
     }
 
     // === Title Menu Button

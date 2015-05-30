@@ -8,11 +8,13 @@ public class MainMenuController : MonoBehaviour {
     public GameObject SelectGame;
     public Text gameName;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 
-        if (PlayerPrefs.GetInt("ScreenToLoad") != 1 || PlayerPrefs.GetInt("ScreenToLoad") != 2)
+        if (!(PlayerPrefs.GetInt("ScreenToLoad") == 1 || PlayerPrefs.GetInt("ScreenToLoad") == 2))
         {
-            PlayerPrefs.SetInt("ScreenToLoad", 1);  //if it is 1 = Main Menu 2 = Select Game
+            PlayerPrefs.SetInt("ScreenToLoad", 2);  //if it is 1 = Main Menu 2 = Select Game
+            MainMenu.SetActive(true);
+            SelectGame.SetActive(false);
         }
         if (PlayerPrefs.GetInt("ScreenToLoad") == 1)
         {
