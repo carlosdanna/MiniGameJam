@@ -29,6 +29,14 @@ public class BlavaMovement : MonoBehaviour {
         if (!m_bGoTime)
             return;
 
+        if ( Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale > 0)
+                Time.timeScale = 0;
+            else
+                Time.timeScale = 1;
+        }
+
 		if (Input.GetAxis("Horizontal") < 0)
 			Direction = -1;
 		else if (Input.GetAxis("Horizontal") > 0)
