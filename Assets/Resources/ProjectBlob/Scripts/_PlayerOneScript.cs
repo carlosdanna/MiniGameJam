@@ -51,7 +51,7 @@ public class _PlayerOneScript : MonoBehaviour {
         // === Shooting
         if (Input.GetKeyDown(SHOOT))
         {
-
+            
         }
     }
 
