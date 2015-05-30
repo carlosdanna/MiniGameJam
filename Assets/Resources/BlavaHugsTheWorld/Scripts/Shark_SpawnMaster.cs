@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shark_SpawnMaster : MonoBehaviour 
+public class Shark_SpawnMaster : MonoBehaviour
 {
-
     public GameObject theRock;   //Can you smell what the Rock is cooking?!
     public GameObject theVillage;   // Burn it all down!
     public int numRocks;
+    int currLayer;
 
     public Vector2 theCenter;
 
@@ -37,8 +37,8 @@ public class Shark_SpawnMaster : MonoBehaviour
     {
         float offsetX, offsetY;
 
-        offsetX = theRock.GetComponent<CircleCollider2D>().radius;
-        offsetY = theRock.GetComponent<CircleCollider2D>().radius;
+        offsetX = theRock.GetComponent<CircleCollider2D>().radius + 2;
+        offsetY = theRock.GetComponent<CircleCollider2D>().radius + 2;
 
         float spawnY, spawnX;       // place to spawn
 

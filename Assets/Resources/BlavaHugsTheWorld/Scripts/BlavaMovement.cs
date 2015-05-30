@@ -7,13 +7,13 @@ public class BlavaMovement : MonoBehaviour {
 	// Use this for initialization
 	private int left = -1;
 	private int right = 1;
-	public float Speed=0f;
-	public float fallSpeed=0f;
+	public float Speed = 0f;
+	public float fallSpeed = 0f;
 	public float maxSpeed = 0f;
 	public float minSpeed = 0f;
 	public float Acceleration = 0f;
-	private float Direction=0f;
-	private float lastDirection =0f;
+	private float Direction = 0f;
+	private float lastDirection = 0f;
 	private Vector2 Velocity;
 	public Rigidbody2D body;
 	
@@ -51,4 +51,9 @@ public class BlavaMovement : MonoBehaviour {
 		
 		//	body.velocity = new Vector2 (Direction * Speed, fallSpeed);
 	}
+
+    public void Die()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
 }
