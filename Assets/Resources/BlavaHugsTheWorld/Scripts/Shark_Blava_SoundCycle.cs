@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Shark_Blava_SoundCycle : MonoBehaviour {
 
-    private AudioSource[] lava_sizzle = new AudioSource[6];
+    private AudioSource[] lava_sizzle = new AudioSource[10];
     private bool isOn = false;
     private float noSkipTimer;
     private int noSkipNextIndex;
@@ -47,5 +47,11 @@ public class Shark_Blava_SoundCycle : MonoBehaviour {
                 return;
             }
         }
+    }
+
+    public void Win()
+    {
+        Stop();
+        lava_sizzle[Random.Range(6, 10)].Play();
     }
 }

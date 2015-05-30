@@ -67,4 +67,9 @@ public class BlavaMovement : MonoBehaviour {
     {
         Application.LoadLevel(Application.loadedLevel);
     }
+
+    public void KillRigid()
+    {
+        Destroy(body);
+    }
 }
