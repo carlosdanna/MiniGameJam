@@ -9,6 +9,8 @@ public class _JGPlayerScript : MonoBehaviour {
 	public float dropSpeed = 0.02f;
 	bool isAlive = true;
 	float velocity;
+	public AudioSource arrowHit;
+	public AudioSource death;
 	// Use this for initialization
 	void Start () {
 		velocity = -dropSpeed;
@@ -44,9 +46,13 @@ public class _JGPlayerScript : MonoBehaviour {
 		}
 
 		if (transform.position.y < -3.55F || !isAlive)
+
 			velocity = -dropSpeed * 5.0f;
 
 		transform.position = new Vector3 (transform.position.x, transform.position.y + velocity, transform.position.z);
+		if (transform.position.y < -5.0f && isAlive) {
+			death.Play();
+		}
 
 		if (transform.position.y < -5.0f) {
 			isAlive = false;
@@ -59,6 +65,8 @@ public class _JGPlayerScript : MonoBehaviour {
 		if (col.tag == "Arrow") {
 			isAlive = false;
 			Destroy(col.gameObject);
+			arrowHit.Play();
+			death.Play();
 		}
 	}
 }

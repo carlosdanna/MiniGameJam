@@ -13,10 +13,11 @@ public class ArrowManager : MonoBehaviour {
 	public float betweenTimer = 0.0f;
 	public float arrowSpeed = 5.0f;
 	public int lastIndex = 0;
+	public AudioSource arrowSound;
 
 	// Use this for initialization
 	void Start () {
-		betweenTimer = 300 / 100.0f;
+		betweenTimer = 200 / 100.0f;
 	}
 	
 	// Update is called once per frame
@@ -44,13 +45,14 @@ public class ArrowManager : MonoBehaviour {
 			arrow = (GameObject)Instantiate ((GameObject)Resources.Load ("ProjectJungle/Prefabs/Arrow"), rightSpawnPoints [point].transform.position, Quaternion.identity);
 			arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(-arrowSpeed, 0.0f);
 		} else {
-			arrow = (GameObject)Instantiate ((GameObject)Resources.Load ("ProjectJungle/Prefabs/Arrow"), leftSpawnPoints [point].transform.position, Quaternion.identity);
+			arrow = (GameObject)Instantiate ((GameObject)Resources.Load ("ProjectJungle/Prefabs/ArrowReverse"), leftSpawnPoints [point].transform.position, Quaternion.identity);
 			arrow.GetComponent<Rigidbody2D>().velocity = new Vector2(arrowSpeed, 0.0f);
 		}
 
 		arrow.transform.parent = transform;
 
-		betweenTimer = Random.Range (50, 151) / 100.0f;
+		betweenTimer = Random.Range (20, 101) / 100.0f;
+		arrowSound.Play ();
 	}
 
 	void CheckPlayers()
