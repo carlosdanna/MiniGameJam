@@ -4,12 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Rock
-  - Node
-  - Music
-  - Seagull
+  - Red_Ninja
+  - Blue_Ninja
   - Fish
-  - Arrow
+  - Seagull
   layers:
   - Default
   - TransparentFX
