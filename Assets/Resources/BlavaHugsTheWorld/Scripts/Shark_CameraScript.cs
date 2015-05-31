@@ -75,6 +75,7 @@ public class Shark_CameraScript : MonoBehaviour {
                     player.GetComponent<Animator>().Play("MoveState");
                     player.GetComponent<BlavaMovement>().GoTime(true);
                     player.GetComponent<SpriteRenderer>().sortingOrder = 3;
+                    player.GetComponent<TrailRenderer>().sortingOrder = 3;
                     soundSystem.Play();
                 }
                 break;
