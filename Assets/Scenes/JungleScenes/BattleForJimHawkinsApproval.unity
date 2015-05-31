@@ -1235,6 +1235,60 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 38a990d5f709e944b847cc324f6d0cab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &734048251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 734048252}
+  - 212: {fileID: 734048253}
+  m_Layer: 0
+  m_Name: scene_2__aztec_temple_by_neisbeis-d6nnqod
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &734048252
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 734048251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.69379997, y: .364259988, z: 0}
+  m_LocalScale: {x: 2.4356339, y: 2.43563414, z: 2.43563414}
+  m_Children: []
+  m_Father: {fileID: 1129140653}
+  m_RootOrder: 10
+--- !u!212 &734048253
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 734048251}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: -20
+  m_Sprite: {fileID: 21300000, guid: f52b9d1f1f2d2454ca286e347696f43f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &754606364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,6 +2005,7 @@ Transform:
   - {fileID: 1090555322}
   - {fileID: 2074140137}
   - {fileID: 2101477171}
+  - {fileID: 734048252}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!1 &1135088147
