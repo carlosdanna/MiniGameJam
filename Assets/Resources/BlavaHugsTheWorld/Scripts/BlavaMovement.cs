@@ -19,8 +19,10 @@ public class BlavaMovement : MonoBehaviour {
 
     private bool m_bGoTime = false;
 	
-	void Start () {
+	void Start () 
+    {
 		body =  GetComponent<Rigidbody2D> ();
+        GetComponent<TrailRenderer>().sortingOrder = 0;
 	}
 	
 	// Update is called once per frame
