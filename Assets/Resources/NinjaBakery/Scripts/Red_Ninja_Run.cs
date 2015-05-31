@@ -21,19 +21,21 @@ public class Red_Ninja_Run : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		if (!is_playing)
-			return;
-		if (Input.GetKeyDown (KeyCode.W) && stepcount % 2 == 0) {
-			stepcount++;
-			w_key.SetActive(false);
-			e_key.SetActive (true);
 
-		} else if (Input.GetKeyUp (KeyCode.E) && stepcount % 2 == 1) {
-			stepcount++;
-			w_key.SetActive (true);
-			e_key.SetActive (false);
+		if (!is_winner) {
+			if (!is_playing)
+				return;
+			if (Input.GetKeyDown (KeyCode.W) && stepcount % 2 == 0) {
+				stepcount++;
+				w_key.SetActive (false);
+				e_key.SetActive (true);
 
+			} else if (Input.GetKeyUp (KeyCode.E) && stepcount % 2 == 1) {
+				stepcount++;
+				w_key.SetActive (true);
+				e_key.SetActive (false);
+
+			}
 		}
 		
 		
@@ -57,6 +59,7 @@ public class Red_Ninja_Run : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		slash_trigger.SetActive (true);
+		slash_trigger.GetComponent<AudioSource> ().Play ();
 		if (other.gameObject.GetComponent<Blue_Ninja_run> ().stepcount > stepcount) {
 			is_winner = false;
 		}
@@ -68,6 +71,11 @@ public class Red_Ninja_Run : MonoBehaviour {
 	public void Reset()
 	{
 		Application.LoadLevel (Application.loadedLevel);
+	}
+
+	public void DeathSound()
+	{
+		GetComponent<AudioSource> ().Play ();
 	}
 	
 }
