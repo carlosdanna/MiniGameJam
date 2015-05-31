@@ -53,7 +53,7 @@ public class Shark_Blava_RockLogic : MonoBehaviour {
                 }
                 break;
             case 3: // panicscatter
-                PanicDestination();
+                PanicDestination(false);
                 dx = (direction.x * panicSpeed * Time.deltaTime);
                 dy = (direction.y * panicSpeed * Time.deltaTime);
                 transform.position = new Vector3(transform.position.x + dx, transform.position.y + dy, transform.position.z);
@@ -78,7 +78,7 @@ public class Shark_Blava_RockLogic : MonoBehaviour {
         direction.Normalize();
     }
 
-    void PanicDestination(bool oldDest = false)
+    void PanicDestination(bool oldDest)
     {
         direction = player.transform.position - transform.position;
         direction.Normalize();

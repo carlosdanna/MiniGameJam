@@ -126,7 +126,7 @@ public class Shark_Blava_VillagerLogic : MonoBehaviour
         direction.Normalize();
     }
 
-    void PanicDestination(bool oldDest = false)
+    void PanicDestination(bool oldDest)
     {
         float dangerX = Random.Range(20.0f, 50.0f);
         if (oldDest)
