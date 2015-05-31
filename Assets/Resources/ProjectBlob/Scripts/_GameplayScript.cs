@@ -6,6 +6,8 @@ public class _GameplayScript : MonoBehaviour {
     // === Variables
     public GameObject HUDTimer;
     public GameObject HUDText;
+    public GameObject RedScore;
+    public GameObject BlueScore;
     public GameObject Player1;
     public GameObject Player2;
     float m_fTimer;
@@ -109,16 +111,19 @@ public class _GameplayScript : MonoBehaviour {
         }
         else
         {
-            // Display the Winner
-            if (winner == Player.RED)
-                HUDText.GetComponent<Text>().text = "Red Wins!";
-            else
-                HUDText.GetComponent<Text>().text = "Blue Wins!";
-            Camera.main.GetComponent<_SoundManagerScript>().PlayAudio(_SoundManagerScript.SoundID.bVictory);
-            // Set the next State
-            m_State = State.FINISH;
-            HUDTimer.gameObject.SetActive(true);
-            HUDTimer.GetComponent<Text>().text = "Press Escape to Exit";
+            if (DisplayScores())
+            {
+                // Display the Winner
+                if (winner == Player.RED)
+                    HUDText.GetComponent<Text>().text = "Red Wins!";
+                else
+                    HUDText.GetComponent<Text>().text = "Blue Wins!";
+                Camera.main.GetComponent<_SoundManagerScript>().PlayAudio(_SoundManagerScript.SoundID.bVictory);
+                // Set the next State
+                m_State = State.FINISH;
+                HUDTimer.gameObject.SetActive(true);
+                HUDTimer.GetComponent<Text>().text = "Press Escape to Exit";
+            }
         }
     }
 
@@ -144,6 +149,26 @@ public class _GameplayScript : MonoBehaviour {
             return PlayerOneScore > PlayerTwoScore ? Player.RED : Player.BLUE;
 
         return Player.UNKNOWN;
+    }
+
+    // === Function to add a counting effect to the players scores
+    // Only returns true once both scores have been fully Displayed, which indicates to move on
+    bool DisplayScores()
+    {
+        // Updating Red Score
+        int red = int.Parse(RedScore.GetComponent<Text>().text);
+        print(red);
+        if (red < PlayerOneScore)
+            RedScore.GetComponent<Text>().text = (++red).ToString();
+        // Updating Blue Score
+        int blue = int.Parse(BlueScore.GetComponent<Text>().text);
+        print(blue);
+        if (blue < PlayerTwoScore)
+            BlueScore.GetComponent<Text>().text = (++blue).ToString();
+        // Is it finished?
+        if (red == PlayerOneScore && blue == PlayerTwoScore)
+            return true;
+        return false;
     }
     // ============================ //
 
