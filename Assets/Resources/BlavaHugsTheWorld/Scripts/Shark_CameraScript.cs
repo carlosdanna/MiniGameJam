@@ -103,6 +103,7 @@ public class Shark_CameraScript : MonoBehaviour {
         m_fZoomTimer = m_fZoomTimeLength;
         m_v3ZoomOrigin = transform.position;
         m_nState = 2;
+        GameObject.FindGameObjectWithTag("Music").GetComponent<Shark_Blava_BGMCycler>().PlaySong("ambient");
     }
 
     void LockToPlayer()
