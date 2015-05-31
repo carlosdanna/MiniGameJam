@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .241379261, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 17ad6318ccb7fa34c99aa837ae376fc8, type: 3}
     m_FontSize: 75
@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .0140571073, g: .0205524005, b: .95588237, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 17ad6318ccb7fa34c99aa837ae376fc8, type: 3}
     m_FontSize: 50
@@ -1712,7 +1712,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 101cd4b26bd3e9048b365314396f1789, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f13245dbe2a7a143970eab1d6e9376e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1300449412
 Transform:
@@ -1722,7 +1722,7 @@ Transform:
   m_GameObject: {fileID: 1300449407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -30, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: -2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1993,7 +1993,7 @@ Transform:
   m_GameObject: {fileID: 1585491088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 30, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -2197,7 +2197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .241379261, g: 0, b: 1, a: 1}
+  m_Color: {r: .964961648, g: .956152678, b: .992647052, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 17ad6318ccb7fa34c99aa837ae376fc8, type: 3}
     m_FontSize: 75
