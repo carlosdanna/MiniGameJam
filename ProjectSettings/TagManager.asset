@@ -8,6 +8,7 @@ TagManager:
   - Blue_Ninja
   - Fish
   - Seagull
+  - Arrow
   layers:
   - Default
   - TransparentFX
