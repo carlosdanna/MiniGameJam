@@ -12,7 +12,7 @@ public class _SoundManagerScript : MonoBehaviour {
     }
 
     // === Enums
-    public enum SoundID { bSelect = 0, bShoot = 1, bSplat1 = 2, bSplat2 = 3, bSplat3 = 4, bScore = 5, bPlaySelect = 6, bVictory = 7 };
+    public enum SoundID { bSelect = 0, bShoot = 1, bSplat1 = 2, bSplat2 = 3, bSplat3 = 4, bScore = 5, bPlaySelect = 6, bVictory = 7, bGameMusic = 8 };
     public enum SoundType { bMusic, bSFX };
 
     // === Variables
@@ -63,6 +63,11 @@ public class _SoundManagerScript : MonoBehaviour {
         sound.m_Audio = (AudioClip)Resources.Load("ProjectBlob/Audio/Blob_Victory");
         sound.m_ID = SoundID.bVictory;
         sound.m_Type = SoundType.bSFX;
+        m_Sounds.Add(sound);
+        // == Game Music
+        sound.m_Audio = (AudioClip)Resources.Load("ProjectBlob/Audio/Blob_Music");
+        sound.m_ID = SoundID.bGameMusic;
+        sound.m_Type = SoundType.bMusic;
         m_Sounds.Add(sound);
         // ===
         // === Defaults
@@ -117,6 +122,11 @@ public class _SoundManagerScript : MonoBehaviour {
                 return true;
         }
         return false;
+    }
+
+    public bool IsAudioTypeEnabled(int _ID)
+    {
+        return m_SoundSwitches[_ID];
     }
     // ===================== //
 

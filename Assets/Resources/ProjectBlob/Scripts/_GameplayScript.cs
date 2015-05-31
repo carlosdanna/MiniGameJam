@@ -12,6 +12,7 @@ public class _GameplayScript : MonoBehaviour {
     public GameObject Player1;
     public GameObject Player2;
     public GameObject Button;
+    public GameObject MusicAudio;
     float m_fTimer;
     State m_State;
     Texture2D tex;
@@ -55,8 +56,11 @@ public class _GameplayScript : MonoBehaviour {
     {
         // Update the timer
         m_fTimer -= Time.deltaTime;
-        if (m_fTimer < 1)
+        if (m_fTimer < 1) {
             HUDText.GetComponent<Text>().text = "Paint!";
+            if (Camera.main.GetComponent<_SoundManagerScript>().IsAudioTypeEnabled(0))
+                MusicAudio.gameObject.SetActive(true);
+        }
         else if (m_fTimer < 2)
             HUDText.GetComponent<Text>().text = "Set ...";
 
