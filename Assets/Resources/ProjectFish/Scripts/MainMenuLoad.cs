@@ -15,7 +15,7 @@ public class MainMenuLoad : MonoBehaviour {
 
 	public void LoadLevel()
 	{
-		Application.LoadLevel("FirstFishScene");
+		Application.LoadLevel(Application.loadedLevel);
 	}
 
 	public void LoadMainMenu()
