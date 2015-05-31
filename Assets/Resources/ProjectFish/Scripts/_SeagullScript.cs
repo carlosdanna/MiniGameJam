@@ -20,5 +20,6 @@ public class _SeagullScript : MonoBehaviour {
 	void Swoop()
 	{
 		transform.position = new Vector3((transform.position.x + hSpeed), (-Mathf.Sin (transform.position.x / 6) * magnitude + initialHeight), 0);
+
 	}
 }

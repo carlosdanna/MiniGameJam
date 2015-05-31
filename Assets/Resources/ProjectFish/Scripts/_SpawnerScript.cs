@@ -10,6 +10,7 @@ public class _SpawnerScript : MonoBehaviour {
 	public GameObject currentSeagull = null;
 	public bool seagullInFlight = false;
 	public float betweenTimer = 0.0f;
+	public float reaperAlpha = 0.0f;
 	public Text score;
 	public int scoreNum = 0;
 
@@ -37,12 +38,12 @@ public class _SpawnerScript : MonoBehaviour {
 
 	bool CheckCurrentSeagull()
 	{
-		if (currentSeagull.transform.position.x < 0.0f || currentSeagull.transform.position.x > 20.0f)
+		if (currentSeagull.transform.position.x < -1.0f || currentSeagull.transform.position.x > 20.0f)
 		{
 			Destroy(currentSeagull);
 			currentSeagull = null;
 			seagullInFlight = false;
-			betweenTimer = (float)Random.Range (1, 2);
+			betweenTimer = (float)Random.Range (0, 3);
 			return false;
 		}
 		return true;
