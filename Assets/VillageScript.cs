@@ -6,6 +6,7 @@ public class VillageScript : MonoBehaviour
     private float victoryTimer;
     private bool weWin = false;
     private Shark_CameraScript player;
+    private bool panicking = false;
 
     void Start()
     {
@@ -27,7 +28,10 @@ public class VillageScript : MonoBehaviour
         }
 
         if ((GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).magnitude < 5.0f)
+        {
             GetComponent<Animator>().SetBool("isPanicking", true);
+            panicking = true;
+        }
         else
             GetComponent<Animator>().SetBool("isPanicking", false);
 
@@ -43,5 +47,10 @@ public class VillageScript : MonoBehaviour
             victoryTimer = 3.0f;
             player.Victory();
         }
+    }
+
+    public bool IsPanicking()
+    {
+        return panicking;
     }
 }
