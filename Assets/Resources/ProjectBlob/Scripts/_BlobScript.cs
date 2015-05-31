@@ -5,8 +5,9 @@ public class _BlobScript : MonoBehaviour {
     // === Variables
     public Vector3 CenterPosition;
     public GameObject splatterPrefab;
-    float m_fSpeed = .75f;
-    float m_fMaxHeight = .5f;
+    public Color color;
+    float m_fSpeed = 10f;
+    float m_fMaxHeight = 1.25f;
     bool m_bFalling = false;
 
 	// Use this for initialization
@@ -21,23 +22,23 @@ public class _BlobScript : MonoBehaviour {
         scale.x -= m_fSpeed * Time.deltaTime;
         scale.y -= m_fSpeed * Time.deltaTime;
         transform.localScale = scale;
-        if (scale.x <= .25)
-            Splatter();
+        if (scale.x <= 7f)
+            GetComponent<Animator>().SetTrigger("Splatter");
         // ===
         // === Taking care of Position
         Vector3 position = transform.position;
         // == Updating the height
         if (position.y < CenterPosition.y + m_fMaxHeight && !m_bFalling)
         {
-            position.y += 2f * Time.deltaTime;
+            position.y += 4f * Time.deltaTime;
         }
         else
         {
-            position.y -= 2f * Time.deltaTime;
+            position.y -= 4f * Time.deltaTime;
             m_bFalling = true;
         }
         // == Keeping it centered
-        position.x += .35f * Time.deltaTime;
+        position.x -= .15f * Time.deltaTime;
         transform.position = position;
         // ===
 	}
@@ -49,7 +50,7 @@ public class _BlobScript : MonoBehaviour {
         DestroyObject(gameObject);
         // Spawn the Splatter
         GameObject splatter = Instantiate<GameObject>(splatterPrefab) as GameObject;
-        splatter.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
+        splatter.GetComponent<SpriteRenderer>().color = color;
         Vector3 position = transform.position;
         position.z = 9f;
         splatter.transform.position = position;

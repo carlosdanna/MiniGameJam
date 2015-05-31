@@ -6,10 +6,12 @@ public class _GameplayScript : MonoBehaviour {
     // === Variables
     public GameObject HUDTimer;
     public GameObject HUDText;
+    public GameObject TextBackImage;
     public GameObject RedScore;
     public GameObject BlueScore;
     public GameObject Player1;
     public GameObject Player2;
+    public GameObject Button;
     float m_fTimer;
     State m_State;
     Texture2D tex;
@@ -68,6 +70,7 @@ public class _GameplayScript : MonoBehaviour {
             HUDTimer.GetComponent<Text>().text = (int)m_fTimer + "s";
             // Disable the HUDText
             HUDText.gameObject.SetActive(false);
+            TextBackImage.gameObject.SetActive(false);
             // Create the Players
             Player1 = Instantiate<GameObject>(Player1) as GameObject;
             Player2 = Instantiate<GameObject>(Player2) as GameObject;
@@ -93,6 +96,7 @@ public class _GameplayScript : MonoBehaviour {
             // Extract the Pixels
             StartCoroutine("CaptureRenderTexture");
             // Enable the HUDText
+            TextBackImage.gameObject.SetActive(true);
             HUDText.gameObject.SetActive(true);
             HUDText.GetComponent<Text>().text = "Times Up!";
             HUDText.GetComponent<Text>().color = Color.black;
@@ -111,6 +115,8 @@ public class _GameplayScript : MonoBehaviour {
         }
         else
         {
+            if (!Camera.main.GetComponent<_SoundManagerScript>().IsAudioPlaying(5))
+                Camera.main.GetComponent<_SoundManagerScript>().PlayAudio(_SoundManagerScript.SoundID.bScore);
             if (DisplayScores())
             {
                 // Display the Winner
@@ -121,16 +127,14 @@ public class _GameplayScript : MonoBehaviour {
                 Camera.main.GetComponent<_SoundManagerScript>().PlayAudio(_SoundManagerScript.SoundID.bVictory);
                 // Set the next State
                 m_State = State.FINISH;
-                HUDTimer.gameObject.SetActive(true);
-                HUDTimer.GetComponent<Text>().text = "Press Escape to Exit";
+                Button.SetActive(true);
             }
         }
     }
 
     void GameFinsh()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Application.LoadLevel("BlobScene");
+        
     }
     // ================================ //
 
@@ -157,17 +161,22 @@ public class _GameplayScript : MonoBehaviour {
     {
         // Updating Red Score
         int red = int.Parse(RedScore.GetComponent<Text>().text);
-        print(red);
-        if (red < PlayerOneScore)
-            RedScore.GetComponent<Text>().text = (++red).ToString();
+        if (red < PlayerOneScore) {
+            red += 2;
+            RedScore.GetComponent<Text>().text = (red).ToString();
+        }
         // Updating Blue Score
         int blue = int.Parse(BlueScore.GetComponent<Text>().text);
-        print(blue);
-        if (blue < PlayerTwoScore)
-            BlueScore.GetComponent<Text>().text = (++blue).ToString();
+        if (blue < PlayerTwoScore) {
+            blue += 2;
+            BlueScore.GetComponent<Text>().text = (blue).ToString();
+        }
         // Is it finished?
-        if (red == PlayerOneScore && blue == PlayerTwoScore)
+        if (red >= PlayerOneScore && blue >= PlayerTwoScore) {
+            RedScore.GetComponent<Text>().text = (PlayerOneScore).ToString();
+            BlueScore.GetComponent<Text>().text = (PlayerTwoScore).ToString();
             return true;
+        }
         return false;
     }
     // ============================ //

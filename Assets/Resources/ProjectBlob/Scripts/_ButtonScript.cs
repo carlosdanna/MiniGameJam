@@ -9,4 +9,10 @@ public class _ButtonScript : MonoBehaviour {
         audio.clip = (AudioClip)Resources.Load("ProjectBlob/Audio/Blob_MenuSelect");
         audio.Play();
     }
+
+    // == Back to Menu Button
+    public void OnBackBtnClick()
+    {
+        Application.LoadLevel("BlobScene");
+    }
 }
