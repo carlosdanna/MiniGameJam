@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class _LeftSeagullScript : MonoBehaviour {
 
 	public float magnitude = -5.0f;
-	float hSpeed = -0.15f;
+	float hSpeed = -0.18f;
 	float initialHeight = 0.0f;
 	public float originalZRot = 0.0f;
 	public _SpawnerScript spawner;

@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class KillDepth : MonoBehaviour {
-
+	public GameObject game;
+	public Canvas GameOver;
+	public Text score;
+	public GameObject spawner;
 	// Use this for initialization
 	void Start () {
 	
@@ -27,7 +31,10 @@ public class KillDepth : MonoBehaviour {
 			//}
 			//menu.SetActive(true);
 			//game.SetActive(false);
-			Application.LoadLevel("FirstFishScene");
+			GameOver.gameObject.SetActive(true);
+			game.SetActive(false);
+			score.text = "Score: " + spawner.GetComponent<_SpawnerScript>().scoreNum;
+
 		}
 	}
 }
