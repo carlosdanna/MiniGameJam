@@ -29,7 +29,7 @@ public class Shark_Menu : MonoBehaviour
 
     public void Quit()
     {
-        //Application.LoadLevel("Main Menu");
+		Application.LoadLevel("MainScene");
     }
 
     public void Resume()
