@@ -32,16 +32,16 @@ public class Blue_Ninja_run : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.K) && stepcount % 2 == 0)
 			{
 				stepcount++;
-				k_key.SetActive(true);
-				l_key.SetActive (false);
+				k_key.SetActive(false);
+				l_key.SetActive (true);
 
 			}
 			else if (Input.GetKeyDown (KeyCode.L) && stepcount % 2 == 1)
 			{
 			
 				stepcount++;
-				k_key.SetActive(false);
-				l_key.SetActive (true);
+				k_key.SetActive(true);
+				l_key.SetActive (false);
 			}
 		}
 		
@@ -76,6 +76,11 @@ public class Blue_Ninja_run : MonoBehaviour {
 	public void Reset()
 	{
 		Application.LoadLevel (Application.loadedLevel);
+	}
+
+	public void DeathSound()
+	{
+		GetComponent<AudioSource> ().Play ();
 	}
 	
 }
