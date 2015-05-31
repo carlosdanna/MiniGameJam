@@ -13,3 +13,7 @@ EditorBuildSettings:
     path: Assets/Resources/ProjectBlob/BlobScene.unity
   - enabled: 1
     path: Assets/Scenes/BlavaHugsTheWorld.unity
+  - enabled: 1
+    path: Assets/Scenes/Ninja_Showdown.unity
+  - enabled: 1
+    path: Assets/Scenes/JungleScenes/BattleForJimHawkinsApproval.unity
