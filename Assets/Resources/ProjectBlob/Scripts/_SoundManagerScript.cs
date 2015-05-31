@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class _SoundManagerScript : MonoBehaviour {
-
     // === Sound Structure
     struct Sound
     {
@@ -16,6 +15,8 @@ public class _SoundManagerScript : MonoBehaviour {
     public enum SoundType { bMusic, bSFX };
 
     // === Variables
+    public GameObject MenuAudioSource;
+    public GameObject CreditsAudioSource;
     ArrayList m_Sounds = new ArrayList();
     bool[] m_SoundSwitches = new bool[2];
 
@@ -134,6 +135,11 @@ public class _SoundManagerScript : MonoBehaviour {
     public void ToggleSoundType(int _type)
     {
         m_SoundSwitches[_type] = !m_SoundSwitches[_type];
+        if (_type == 0)
+        {
+            MenuAudioSource.gameObject.SetActive(m_SoundSwitches[_type]);
+            CreditsAudioSource.gameObject.SetActive(m_SoundSwitches[_type]);
+        }
     }
     // ================================== //
 	
