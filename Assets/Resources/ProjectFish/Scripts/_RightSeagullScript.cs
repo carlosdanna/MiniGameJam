@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class _RightSeagullScript : MonoBehaviour {
 
 	public float magnitude = 5.0f;
+	public AudioSource scoreSound;
 	float hSpeed = 0.18f;
 	public float originalZRot = 0.0f;
 	float initialHeight = 0.0f;
@@ -13,11 +14,13 @@ public class _RightSeagullScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		transform.localScale = new Vector3 (-0.6795574f, 0.6795574f, 0.6795574f);
 		initialHeight = transform.position.y;
 		transform.Rotate (new Vector3(0.0f, 0.0f, 1.0f), -50.0f);
 		originalZRot = transform.rotation.eulerAngles.z;
 		Color color = child.GetComponent<SpriteRenderer> ().color;
 		child.GetComponent<SpriteRenderer> ().color = new Color(color.r, color.g, color.b, spawner.reaperAlpha);
+		scoreSound = GameObject.Find ("Sound_Reaped").GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -34,6 +37,7 @@ public class _RightSeagullScript : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.tag == "Fish") {
+			scoreSound.Play();
 			spawner.scoreNum += 1;
 			spawner.score.text = "Score: " + spawner.scoreNum;
 			Destroy (other.gameObject);

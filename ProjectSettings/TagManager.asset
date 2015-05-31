@@ -7,6 +7,9 @@ TagManager:
   - Rock
   - Node
   - Music
+  - Fish
+  - Seagull
+  - ReapedSound
   layers:
   - Default
   - TransparentFX

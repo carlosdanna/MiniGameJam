@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class _LeftSeagullScript : MonoBehaviour {
 
 	public float magnitude = -5.0f;
+	public AudioSource scoreSound;
 	float hSpeed = -0.18f;
 	float initialHeight = 0.0f;
 	public float originalZRot = 0.0f;
@@ -18,6 +19,8 @@ public class _LeftSeagullScript : MonoBehaviour {
 		originalZRot = transform.rotation.eulerAngles.z;
 		Color color = child.GetComponent<SpriteRenderer> ().color;
 		child.GetComponent<SpriteRenderer> ().color = new Color(color.r, color.g, color.b, spawner.reaperAlpha);
+		scoreSound = GameObject.Find ("Sound_Reaped").GetComponent<AudioSource> ();
+
 	}
 	
 	// Update is called once per frame
@@ -40,6 +43,7 @@ public class _LeftSeagullScript : MonoBehaviour {
 			spawner.reaperAlpha += 0.2f;
 			Color color = child.GetComponent<SpriteRenderer> ().color;
 			child.GetComponent<SpriteRenderer> ().color = new Color(color.r, color.g, color.b, spawner.reaperAlpha);
+			scoreSound.Play();
 		}
 	}
 }

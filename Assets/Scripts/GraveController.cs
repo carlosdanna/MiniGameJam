@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class GraveController : MonoBehaviour {
 
     public GameObject HuntedthingPrefab;
+	public AudioSource fling;
 	public GameObject Hunted;
 	public bool isActive = true;
 	public float timer = 0.0f;
@@ -24,6 +25,7 @@ public class GraveController : MonoBehaviour {
 	{
 
 		if (isActive) {
+						fling.Play();
 						GameObject hunted = Instantiate<GameObject> (HuntedthingPrefab) as GameObject;
 						hunted.transform.position = Hunted.transform.position;
 						if (gameObject.name == "Grave1") {

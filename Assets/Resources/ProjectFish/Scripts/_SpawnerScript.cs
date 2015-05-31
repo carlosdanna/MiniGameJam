@@ -66,6 +66,8 @@ public class _SpawnerScript : MonoBehaviour {
 			gull.GetComponent<_LeftSeagullScript>().spawner = this;
 		}
 
+		gull.transform.parent = transform;
+
 		seagullInFlight = true;
 		currentSeagull = gull;
 	}
