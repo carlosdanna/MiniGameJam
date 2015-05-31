@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/Scenes/FishScenes/FirstFishScene.unity
   - enabled: 1
     path: Assets/Resources/ProjectBlob/BlobScene.unity
+  - enabled: 1
+    path: Assets/Scenes/BlavaHugsTheWorld.unity

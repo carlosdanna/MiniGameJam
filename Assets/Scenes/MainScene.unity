@@ -637,7 +637,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: .145098045, g: .145098045, b: .145098045, a: 1}
+    m_HighlightedColor: {r: .83088237, g: .83088237, b: .83088237, a: 1}
     m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300010, guid: 7c59cae7a2937984e906a4e4a7578882, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 7f000f530d00bf84ebf646f54150ac26, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: .145098045, g: .145098045, b: .145098045, a: 1}
+    m_HighlightedColor: {r: .735294104, g: .735294104, b: .735294104, a: 1}
     m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
@@ -2476,7 +2476,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 133}
+  m_AnchoredPosition: {x: 0, y: 149}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1132415969
@@ -2772,7 +2772,7 @@ GameObject:
   - 114: {fileID: 1370991612}
   - 114: {fileID: 1370991611}
   m_Layer: 5
-  m_Name: Game3
+  m_Name: BlavaHugsTheWorld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2815,7 +2815,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: .145098045, g: .145098045, b: .145098045, a: 1}
+    m_HighlightedColor: {r: .838235259, g: .838235259, b: .838235259, a: 1}
     m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
@@ -2861,7 +2861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300012, guid: 7c59cae7a2937984e906a4e4a7578882, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06e3bab7aafde644eba3a3d151daff91, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
