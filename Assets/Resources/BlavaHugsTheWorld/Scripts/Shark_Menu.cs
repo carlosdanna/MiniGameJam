@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Shark_Menu : MonoBehaviour 
 {
-    public GameObject panel;
+    public GameObject panel, pausePanel, zeButtons;
+    public GameObject image;
 
     public void StartGame()
     {
-        gameObject.SetActive(false);
+        zeButtons.SetActive(false);
+        image.SetActive(false);
         GameObject spawner = GameObject.Find("SpawnManager");
         spawner.GetComponent<Shark_SpawnMaster>().Initialize();
         GameObject camera = GameObject.Find("Main Camera");
@@ -26,6 +29,24 @@ public class Shark_Menu : MonoBehaviour
 
     public void Quit()
     {
-        //Application.LoadLevel("Main Menu");
+		Application.LoadLevel("MainScene");
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
+    }
+
+    public void Exit()
+    {
+        Time.timeScale = 1;
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        pausePanel.SetActive(true);
     }
 }

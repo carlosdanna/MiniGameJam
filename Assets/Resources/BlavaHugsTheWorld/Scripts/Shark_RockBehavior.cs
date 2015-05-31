@@ -1,21 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shark_RockBehavior : MonoBehaviour 
+public class Shark_RockBehavior : MonoBehaviour
 {
-    float myRadius;
+    private float victoryTimer;
+    private bool weWin = false;
+    private Shark_CameraScript player;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
-        myRadius = GetComponent<CircleCollider2D>().radius;
-	}
+        player = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Shark_CameraScript>();
+    }
+
+    void Update()
+    {
+        if (weWin == true)
+        {
+            victoryTimer -= Time.deltaTime;
+
+            if (victoryTimer <= 0.0f)
+            {
+                weWin = false;
+                Application.LoadLevel(Application.loadedLevel);
+            }
+        }
+
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<BlavaMovement>().Die();
+            GetComponent<Animator>().SetBool("m_bKillAnim", true);
+            weWin = true;
+            victoryTimer = 3.0f;
+            player.Victory();
         }
     }
 }

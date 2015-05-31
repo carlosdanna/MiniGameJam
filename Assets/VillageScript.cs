@@ -26,6 +26,11 @@ public class VillageScript : MonoBehaviour
             }
         }
 
+        if ((GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).magnitude < 5.0f)
+            GetComponent<Animator>().SetBool("isPanicking", true);
+        else
+            GetComponent<Animator>().SetBool("isPanicking", false);
+
     }
 
 
@@ -33,6 +38,7 @@ public class VillageScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            GetComponent<Animator>().SetBool("isDying", true);
             weWin = true;
             victoryTimer = 3.0f;
             player.Victory();

@@ -75,6 +75,7 @@ public class Shark_CameraScript : MonoBehaviour {
                     player.GetComponent<Animator>().Play("MoveState");
                     player.GetComponent<BlavaMovement>().GoTime(true);
                     player.GetComponent<SpriteRenderer>().sortingOrder = 3;
+                    player.GetComponent<TrailRenderer>().sortingOrder = 3;
                     soundSystem.Play();
                 }
                 break;
@@ -103,6 +104,7 @@ public class Shark_CameraScript : MonoBehaviour {
         m_fZoomTimer = m_fZoomTimeLength;
         m_v3ZoomOrigin = transform.position;
         m_nState = 2;
+        GameObject.FindGameObjectWithTag("Music").GetComponent<Shark_Blava_BGMCycler>().PlaySong("ambient");
     }
 
     void LockToPlayer()

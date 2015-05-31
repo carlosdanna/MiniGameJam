@@ -19,8 +19,10 @@ public class BlavaMovement : MonoBehaviour {
 
     private bool m_bGoTime = false;
 	
-	void Start () {
+	void Start () 
+    {
 		body =  GetComponent<Rigidbody2D> ();
+        GetComponent<TrailRenderer>().sortingOrder = 0;
 	}
 	
 	// Update is called once per frame
@@ -32,9 +34,9 @@ public class BlavaMovement : MonoBehaviour {
         if ( Input.GetKeyDown(KeyCode.Escape))
         {
             if (Time.timeScale > 0)
-                Time.timeScale = 0;
+                GameObject.Find("Canvas").GetComponent<Shark_Menu>().Pause();
             else
-                Time.timeScale = 1;
+                GameObject.Find("Canvas").GetComponent<Shark_Menu>().Resume();
         }
 
 		if (Input.GetAxis("Horizontal") < 0)
