@@ -15,4 +15,10 @@ public class _ButtonScript : MonoBehaviour {
     {
         Application.LoadLevel("BlobScene");
     }
+
+    // == Title Menu Button
+    public void OnTitleBtnClick()
+    {
+        Application.LoadLevel("MainScene");
+    }
 }
