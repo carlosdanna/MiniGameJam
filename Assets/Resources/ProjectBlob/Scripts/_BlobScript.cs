@@ -50,7 +50,9 @@ public class _BlobScript : MonoBehaviour {
         // Spawn the Splatter
         GameObject splatter = Instantiate<GameObject>(splatterPrefab) as GameObject;
         splatter.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
-        splatter.transform.position = transform.position;
+        Vector3 position = transform.position;
+        position.z = 9f;
+        splatter.transform.position = position;
         // Playing the Audio
         _SoundManagerScript.SoundID splatterID = (_SoundManagerScript.SoundID)Random.Range(2, 5);
         Camera.main.GetComponent<_SoundManagerScript>().PlayAudio(splatterID);
