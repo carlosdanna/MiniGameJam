@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
   - enabled: 1
     path: Assets/Scenes/FishScenes/FirstFishScene.unity
+  - enabled: 1
+    path: Assets/Resources/ProjectBlob/BlobScene.unity
